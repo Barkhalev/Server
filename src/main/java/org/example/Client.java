@@ -13,21 +13,20 @@ public class Client {
     private static final String HOST = "localhost";
     private static final int PORT = 8889;
 
-
     public static void main(String[] args) {
         try (Socket clientSocket = new Socket(HOST, PORT);
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream())))
         {
-            String response = in.readLine();
-            System.out.println(response);
+            String city = in.readLine();
+            System.out.println(city);
 
             Scanner sc = new Scanner(System.in);
-            String name = sc.nextLine();
-            out.println(name);
+            String newCity = sc.nextLine();
+            out.println(newCity);
 
-            response = in.readLine();
-            System.out.println(response);
+            String result = in.readLine();
+            System.out.println(result);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
